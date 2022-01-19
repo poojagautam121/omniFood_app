@@ -1,0 +1,553 @@
+/* ------------------------------------------------- */
+/* BASIC SETUP */
+/* ------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 20px;
+  font-weight: 300;
+  font-family: "Lato", Arial, Helvetica, sans-serif;
+  background-color: white;
+  text-rendering: optimizeLegibility;
+  /* The text-rendering property in CSS allows you to choose quality of text over speed (or vice versa) allowing you to fine tune optimization by suggesting to the browser as to how it should render text */
+  overflow-x: hidden; /* The content is clipped - and no scrolling mechanism is provided */
+}
+
+.row {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------- */
+/* HEADER SETUP */
+/* ------------------------------------------------- */
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgb(0, 0, 0, 0.7)),
+    url(img/hero.jpg);
+  background-size: cover;
+  background-position: center; /* it will keep image in center */
+  height: 100vh; /* it will set image in whole page */
+}
+
+.hero-text-box {
+  position: absolute;
+  /* width:1140px; */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50px, -50px);
+  /* The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements. */
+  background-attachment: fixed;
+}
+
+/* ------------------------------------------------- */
+/* REUSABLE SETUP */
+/* ------------------------------------------------- */
+h1,
+h2,
+h3 {
+  /* group together common css */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 4px;
+}
+
+h1 {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 200%; /* it will be 200% of 20px (from html class) */
+  color: #fff;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 150%;
+  word-spacing: 2px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+/* it will be applied after H2  */
+/* The ::after selector inserts something after the content of each selected element(s). */
+h2:after {
+  display: block;
+  height: 2px;
+  background-color: rgb(179, 142, 73);
+  content: " "; /* Insert some text after the content of each <h2> element: , in this case we dont want any hence kept it as blank */
+  width: 100px; /* it will change orange line from full width to 100px only */
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 110%;
+  margin-bottom: 20px;
+}
+
+/* ------BUTTONS------- */
+.btn:link,
+.btn :visited,
+input[type="submit"] {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-weight: 300;
+  border-radius: 200px;
+  color: whitesmoke;
+  transition: background-color 0.2sec, border 0.2sec, color 0.2sec;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type="submit"] {
+  background-color: rgb(179, 142, 73);
+  color: white;
+}
+.btn-ghost:link,
+.btn-ghost:visited {
+  color: rgb(179, 142, 73);
+  border: 1px solid rgb(179, 142, 73);
+}
+
+.btn-full:hover,
+.btn-full:active,
+input[type="submit"] :hover {
+  color: rgb(212, 140, 5);
+  border: 2px solid rgb(212, 140, 5);
+  background-color: white;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+  color: rgb(179, 142, 73);
+  border: 2px solid rgb(179, 142, 73);
+}
+
+/* ------------------------------------------------- */
+/* NAVIGATION SETUP */
+/* ------------------------------------------------- */
+.logo {
+  height: 100px;
+  width: auto;
+  float: left; /* it makes logo and nav side by side by using float */
+  margin-top: 20px;
+}
+
+.main-nav {
+  float: right;
+  list-style: none; /* it will remove . from list */
+  margin-top: 40px;
+}
+.main-nav li {
+  display: inline-block; /* it will place all navigation side by side rather than vertical */
+  margin: 25px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+  color: white;
+  text-decoration: none; /* it will remove bottom line from link */
+  font-size: 100%;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2sec; /* it will create transition on border-bottom property by 0.2sec */
+  padding-bottom: 5px;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+  border-bottom: 2px solid rgb(179, 142, 73);
+}
+
+/* ------------------------------------------------- */
+/* FOOTER SETUP */
+/* ------------------------------------------------- */
+section {
+  padding: 80px 0px;
+}
+
+/* -------------- PARAGRAPH ------------------------ */
+.long-copy {
+  line-height: 145%; /* The line-height property specifies the height of a line. */
+  width: 70%;
+  margin-left: 15%; /*  as width would be 70% so to keep it in center , 15%left and 15%right */
+}
+.box {
+  padding: 1%;
+}
+
+.box p {
+  font-size: 90%;
+  line-height: 140%;
+}
+
+/*-------------------- ICONS------------------ */
+
+.icon-big {
+  font-size: 300%;
+  color: rgb(179, 142, 73);
+  margin-bottom: 10px;
+  display: block; /* The display property specifies the display behavior (the type of rendering box) of an element. */
+}
+
+/* ------------------------------------------------- */
+/* MEALS SETUP */
+/* ------------------------------------------------- */
+
+.section-meals {
+  padding: 0px;
+}
+.meal-showcase {
+  list-style: none;
+  width: 100%;
+}
+
+.meal-showcase li {
+  display: block;
+  width: 25%;
+  float: left;
+}
+.meal-photo {
+  background-color: black;
+  /* its used for opacity property in below css to make background darker  */
+  width: 100%; /* it will cover full area of its parent i.e meal-showcase(25%) li as it is 100%  */
+  overflow: hidden; /* visible ,hidden, scroll, auto */
+  /* The overflow property specifies whether to clip the content or to add 
+    scrollbars when the content of an element is too big to fit in the specified area. */
+  /* The overflow is clipped, and the rest of the content will be invisible */
+}
+.meal-photo img {
+  width: 100%; /* it will make sure img is equally wide as its container meal-photo(figure) */
+  height: auto;
+  transform: scale(1.15); /* it will make image 115% big */
+  transition: transform 0.5s, opacity 0.5s; /* doing it for animation  */
+  opacity: 0.7;
+  /* The opacity-level describes the transparency-level, where 1 is not transparent at all, 
+    0.5 is 50% see-through, and 0 is completely transparent. */
+}
+
+.meal-photo img:hover {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+/* ------------------------------------------------- */
+/* HOW IT WORKS SETUP */
+/* ------------------------------------------------- */
+
+.section-steps {
+  background-color: rgb(248, 246, 244);
+}
+
+.steps-box {
+  margin-top: 30px;
+}
+
+.steps-box:first-child {
+  text-align: left; /* it will work on all inline elements (img is also an inline element) */
+  padding-right: 3%;
+  margin-top: 30px;
+}
+.steps-box:last-child {
+  padding-left: 3%;
+  margin-top: 70px;
+}
+
+.app-screen {
+  width: 40%;
+}
+
+.work-steps {
+  margin-bottom: 50px;
+}
+
+.work-steps:last-of-type {
+  margin-bottom: 80px;
+  /* it will add margin 80px only on last element of that particular section */
+}
+
+.work-steps div {
+  color: rgb(179, 142, 73);
+  border: 2px solid rgb(179, 142, 73);
+  display: inline-block;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  /* float:left; */
+  padding: 5px;
+  font-size: 150%;
+  margin-right: 50px;
+}
+
+.btn-app img {
+  height: 50px;
+  width: auto;
+  margin-right: 10px;
+}
+
+/* ------------CLEARFIX--------------- */
+
+.clearfix {
+  zoom: 1; /* Render this element at its normal size. */
+  /* zoom CSS property can be used to control the magnification level of an element. */
+}
+/* float property will get clear from meal images second row */
+.clearfix:after {
+  content: ".";
+  clear: both;
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+
+/* ------------------------------------------------- */
+/* CITIES*/
+/* ------------------------------------------------- */
+
+.box img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.city-feature {
+  margin-bottom: 5px;
+}
+
+.city-icon {
+  display: inline-block;
+  /* text-align: center; */
+  /* width:30px; */
+  color: rgb(179, 142, 73);
+  font-size: 120%;
+  margin-right: 5px;
+
+  /* secrets to aliogn text and icons */
+  line-height: 120%;
+  vertical-align: middle;
+  margin-bottom: 3px;
+}
+
+.btn-app:link,
+.btn-app:visited {
+  border: 0;
+}
+
+/* ---------LINK--------------- */
+a:link,
+a:visited {
+  color: rgb(179, 142, 73);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgb(179, 142, 73);
+  transition: border-bottom 0.2s, color 0.2s;
+}
+
+a:hover,
+a:active {
+  color: #555;
+  border-bottom: 1px solid transparent;
+}
+
+/* ------------------------------------------------- */
+/* CUSTOMER TESTIMONIALS*/
+/* ------------------------------------------------- */
+
+.section-testimonials {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0.87)),
+    url(img/back-customers.jpg);
+  background-size: cover;
+  color: white;
+  background-attachment: fixed;
+  /* it will keep background image at one place */
+}
+
+blockquote {
+  line-height: 140%;
+  font-style: italic;
+  padding: 2%;
+  position: relative;
+}
+blockquote::before {
+  content: "\201c";
+  font-size: 300%;
+  display: block; /* to keep quote it one line we make its as block */
+  position: absolute; /* make its parent relative */
+  top: 0px;
+  bottom: 3px;
+}
+
+cite {
+  font-size: 90%;
+  margin-top: 25px;
+  /* display: block; */
+  vertical-align: middle;
+}
+
+cite img {
+  height: 40px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+/* ------------------------------------------------- */
+/* SIGN UP*/
+/* ------------------------------------------------- */
+
+.section-plan {
+  background-color: rgb(248, 246, 244);
+}
+
+.plan-box {
+  background-color: white;
+  border-radius: 5px;
+  /* padding-left: 5%; */
+  width: 90%;
+}
+
+.plan-box div {
+  padding: 5px;
+  border-bottom: 1px solid rgb(241, 236, 236);
+  box-shadow: 0px 5px 5px rgb(241, 238, 238); /*  x axis , y axis , blur , color */
+}
+
+.plan-box div:first-child {
+  background-color: rgb(253, 250, 243);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.plan-box div:last-child {
+  text-align: center;
+  border: 0;
+}
+.plan-price {
+  font-size: 300%;
+  font-weight: 100;
+  margin-bottom: 10px;
+  color: rgb(179, 142, 73);
+}
+.plan-price span {
+  font-size: 30%;
+  font-weight: 300;
+}
+
+.plan-price-meal {
+  font-size: 80%;
+}
+
+.plan-box ul {
+  list-style: none;
+}
+
+.plan-box ul li {
+  padding: 5px 0px;
+}
+
+/* ------------------------------------------------- */
+/* CONTACT FORM*/
+/* ------------------------------------------------- */
+
+.contact-form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid rgb(230, 228, 228);
+}
+
+input[type="checkbox"] {
+  margin: 5px 10px 5px 0px;
+}
+*:focus {
+  outline: none;
+}
+
+/* ------------------------------------------------- */
+/* FOOTER*/
+/* ------------------------------------------------- */
+
+footer {
+  background-color: rgb(58, 56, 56);
+  padding: 25px;
+  font-size: 80%;
+}
+.footer-nav {
+  list-style: none;
+  float: left;
+}
+
+.social-links {
+  list-style: none;
+  float: right;
+}
+
+.footer-nav li,
+.social-links li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.footer-nav li:last-child,
+.social-links li :last-child {
+  margin-right: 0;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a :visited {
+  text-decoration: none;
+  border: 0;
+  color: rgb(92, 90, 90);
+  transition: color 0.2s;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+  color: rgb(185, 184, 184);
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+  font-size: 150%;
+}
+
+.ion-social-facebook,
+.ion-social-twitter,
+.ion-social-googleplus,
+.ion-social-instagram {
+  transition: color 0.2s;
+}
+
+.ion-social-facebook:hover {
+  color: rgb(106, 106, 243);
+}
+
+.ion-social-twitter:hover {
+  color: blue;
+}
+
+.ion-social-googleplus:hover {
+  color: chocolate;
+}
+
+.ion-social-instagram:hover {
+  color: brown;
+}
+
+footer p {
+  text-align: center;
+  color: rgb(92, 90, 90);
+  padding-top: 20px;
+}
